@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
 
     public float speed = 10f;
+
+    public float walkspeed = 10f;
+    public float sprintspeed = 13f;
+
     public float gravity = -9.81f;
     public float jump = 1f;
 
@@ -20,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        speed = walkspeed;
     }
 
     // Update is called once per frame
@@ -49,12 +53,12 @@ public class PlayerMovement : MonoBehaviour
         //Sprint
         if (Input.GetKeyDown("left shift") && isGrounded)
         {
-            speed = 25f;
+            speed = sprintspeed;
         }
 
         if (Input.GetKeyUp("left shift") && isGrounded)
         {
-            speed = 10f;
+            speed = walkspeed;
         }
 
 
